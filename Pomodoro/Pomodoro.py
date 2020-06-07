@@ -1,14 +1,17 @@
 import tkinter
 from datetime import datetime
 
-counter = 66600
+#timer
+counter = 0000
+#switch
 running = False
 
+#backend
 def counter_label(label):
     def count():
         if running:
             global counter
-            if counter == 66600:
+            if counter == 0000:
                 display = 'Starting...'
             else:
                 tt = datetime.fromtimestamp(counter)
@@ -36,13 +39,14 @@ def Stop():
 
 def Reset(label):
     global counter
-    counter = 66600
+    counter = 0000
     if running == False:
         reset['state'] = 'disabled'
         label['text'] = 'Welcome!'
     else:
         label['text'] = 'Starting...'
 
+#frontend
 root = tkinter.Tk()
 root.title('Stopwatch')
 root.minsize(width=250, height=70)
