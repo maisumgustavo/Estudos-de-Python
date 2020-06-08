@@ -10,7 +10,7 @@ while True:
     print('4 - Concluir tarefa.')
     print('5 - Listar tarefas.')
     print('6 - Listar tarefas concluidas.')
-    print('5 - Sair')
+    print('7 - Sair')
 
     opcao = int(input())
 
@@ -53,3 +53,6 @@ while True:
     elif opcao == 6:
         print(tarefasConcluidas)
 
+    else:
+        print('Saindo...')
+        break
