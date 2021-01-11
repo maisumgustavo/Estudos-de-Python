@@ -1,6 +1,17 @@
 import calculos
 
-print(calculos.soma(1, 1))
-print(calculos.subtracao(1, 1))
-print(calculos.multiplicacao(1, 1))
-print(calculos.divisao(2, 2))
+valor1 = int(input("Digite o primeiro valor: "))
+valor2 = int(input("Digite o segundo valor: "))
+operacao = str(input("Qual a operação?: "))
+
+if operacao == "+":
+    calculos.soma(valor1, valor2)
+
+elif operacao == "-":
+    calculos.subtracao(valor1, valor2)
+
+elif operacao == "*":
+    calculos.multiplicacao(valor1, valor2)
+
+elif operacao == "/":
+    calculos.divisao(valor1, valor2)
