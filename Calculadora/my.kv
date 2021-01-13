@@ -1,4 +1,68 @@
+#:kivy 1.0
+
 Widget:
-<MyLayout>:
-    Button:
-        text: 'Hello World'
+<MyLayout>:    
+    GridLayout:
+        height: 500
+        width: 500
+        lins: 5
+        cols: 3
+        
+        Label:
+            lin: 1
+            col: 1
+            width: 500
+            id: label
+            text: '1'
+
+        Button:
+            col: 1
+            lin: 2
+            text: '7'
+        Button:
+            lin: 2
+            col: 2
+            text: '8'
+        Button:
+            lin: 2
+            col: 3
+            text: '9'
+
+        Button:
+            lin: 3
+            col: 1
+            text: '4'
+        Button:
+            lin: 3
+            col: 2
+            text: '5'
+        Button:
+            lin: 3
+            col: 3
+            text: '6'
+
+        Button:
+            lin: 4
+            col: 1
+            text: '1'
+        Button:
+            lin: 4
+            col: 2
+            text: '2'
+        Button:
+            lin: 4
+            col: 3
+            text: '3'
+
+        Button:
+            lin: 5
+            col: 1
+            text: ''
+        Button:
+            lin: 5
+            col: 2
+            text: '0'
+        Button:
+            lin: 5
+            col: 3
+            text: ','
