@@ -1,10 +1,10 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.stacklayout import StackLayout
+from kivy.uix.boxlayout import BoxLayout
 import calculos
 
 class MyLayout(Widget):
-    pass
+    valor = 0
 
 class MyApp(App):
     def build(self):

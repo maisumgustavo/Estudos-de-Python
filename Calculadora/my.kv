@@ -1,68 +1,53 @@
-#:kivy 1.0
+#:kivy 2.0.0
 
 Widget:
 <MyLayout>:    
-    GridLayout:
-        height: 500
+    BoxLayout:
         width: 500
-        lins: 5
-        cols: 3
-        
+        height: 500
+        orientation: 'vertical'
+
         Label:
-            lin: 1
-            col: 1
-            width: 500
             id: label
-            text: '1'
+            background_color: 'white'
+            text: '{}'.format(root.valor)
 
-        Button:
-            col: 1
-            lin: 2
-            text: '7'
-        Button:
-            lin: 2
-            col: 2
-            text: '8'
-        Button:
-            lin: 2
-            col: 3
-            text: '9'
+        BoxLayout:
+            orientation: 'horizontal'
 
-        Button:
-            lin: 3
-            col: 1
-            text: '4'
-        Button:
-            lin: 3
-            col: 2
-            text: '5'
-        Button:
-            lin: 3
-            col: 3
-            text: '6'
+            Button:
+                text: '7'
+            Button:
+                text: '8'
+            Button:
+                text: '9'
 
-        Button:
-            lin: 4
-            col: 1
-            text: '1'
-        Button:
-            lin: 4
-            col: 2
-            text: '2'
-        Button:
-            lin: 4
-            col: 3
-            text: '3'
+        BoxLayout:
+            orientation: 'horizontal'
+            
+            Button:
+                text: '4'
+            Button:
+                text: '5'
+            Button:
+                text: '6'
 
-        Button:
-            lin: 5
-            col: 1
-            text: ''
-        Button:
-            lin: 5
-            col: 2
-            text: '0'
-        Button:
-            lin: 5
-            col: 3
-            text: ','
+        BoxLayout:
+            orientation: 'horizontal'
+            
+            Button:
+                text: '1'
+            Button:
+                text: '2'
+            Button:
+                text: '3'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            
+            Button:
+                text: ''
+            Button:
+                text: '0'
+            Button:
+                text: ','
