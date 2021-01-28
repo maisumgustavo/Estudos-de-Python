@@ -4,7 +4,12 @@ from kivy.uix.boxlayout import BoxLayout
 import calculos
 
 class MyLayout(Widget):
-    valor = 0
+    def calculate(self, calculation):
+        if calculation:
+            self.label.text = str(eval(calculation))
+        else:
+            self.label.text = 'Error'
+    pass
 
 class MyApp(App):
     def build(self):
