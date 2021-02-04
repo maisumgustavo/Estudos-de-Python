@@ -1,7 +1,5 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.boxlayout import BoxLayout
-import calculos
 
 class MyLayout(Widget):
     def calculate(self, calculation):
@@ -9,7 +7,6 @@ class MyLayout(Widget):
             self.label.text = str(eval(calculation))
         else:
             self.label.text = 'Error'
-    pass
 
 class MyApp(App):
     def build(self):
