@@ -33,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WeCountry" />
   </component>
   <component name="RunManager" selected="Python.Todo_App">
     <configuration name="Todo_App" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">

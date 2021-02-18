@@ -3,7 +3,7 @@ import sqlite3
 #conexão com o banco de dados
 conn = sqlite3.connect('todo-app.db')
 
-#Criação do banco de dados
+#Criação da tabela de dados
 def criar_tabela_Tarefas():
     conn.execute("""
     create table if not exists tarefas (
