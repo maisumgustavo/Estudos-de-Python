@@ -35,5 +35,4 @@ def mostrar_opcao_concluir_tarefa():
     print("Concluindo tarefa => " + str(id_tarefa))
     if id_tarefa != MENU_INICIAL:
         Todo_Db.concluir_tarefa(id_tarefa)
-    
     print("Tarefa concluída!")

@@ -1,0 +1,31 @@
+#:kivy 2.0.0
+
+<TodoInterface>:
+    BoxLayout:
+        height: 600
+        width: 500
+        orientation: 'vertical'
+        
+        Label:
+            text: 'Tarefas'
+
+        BoxLayout:
+            orientation: 'vertical'
+            
+            TextInput:
+                id: 'textinput'
+                text: 'nome da tarefa'
+            
+            Label:
+                text: 'BoxLayout'
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                text: 'Adicionar Tarefa'
+                on_press: print('Apertado')
+                on_release: print('haaaaa')
+            
+            Button:
+                text: 'Concluir Tarefa'

@@ -1,7 +1,16 @@
+from kivy.app import App
+from kivy.config import Config
+from kivy.lang import Builder
+from kivy.uix.widget import Widget
+from kivy.uix.button import Button
+from kivy.uix.scrollview import ScrollView
 import Todo_Db
 import Todo_Interface
 
-def main():
+
+
+
+""" def main():
     NOVA_TAREFA = 1
     CONCLUIR_TAREFA = 2
 
@@ -20,9 +29,15 @@ def main():
         except ValueError as e:
             print(e)
         except Exception as e:
-            print(e)
+            print(e) """
 
-if __name__ == '__main__':
-    Todo_Db.criar_tabela_Tarefas()
+class TodoInterface(Widget):
+    pass
+    
 
-main()
+class TodoApp(App):
+    def build(self):
+        return TodoInterface()
+
+
+TodoApp().run()

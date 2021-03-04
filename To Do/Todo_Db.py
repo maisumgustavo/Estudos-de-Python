@@ -17,7 +17,7 @@ def criar_tabela_Tarefas():
 
 def adicionar_tarefa(tarefa):
     """Adiciona uma nova tarefa"""
-    conn.execute("insert into tarefas (tarefa, concluido) values (?, 0)", (tarefa, ))
+    conn.execute("insert into tarefas (tarefa, concluido) values (?, ?)", (tarefa, 0))
     conn.commit()
 
 
@@ -39,5 +39,5 @@ def listar_tarefas():
 
 def concluir_tarefa(id_tarefa):
     """Retorna o valor 1 para a coluna concluido de alguma tarefa"""
-    conn.execute("update tarefas set concluido = 1 where id_tarefa = ?", id_tarefa)
+    conn.execute("UPDATE tarefas SET concluido = 1 WHERE id_tarefa = ?", id_tarefa)
     conn.commit()
