@@ -5,38 +5,65 @@ con = sqlite3.connect("puzzleDB.db")
 
 cur = con.cursor()
 
-def criarTabela():
-    cur.execute('''
-        CREATE TABLE questoes(
-            pergunta text,
-            resposta text
-        )
-    ''')
-    con.commit()
+class PuzzleDB:
+    
+    #Metodo construtor da classe
+    def __init__(self):
+        #Faz a conexão com o banco de dados
+        self.con = sqlite3.connect('puzzleDB.db')
+        
+        #Cria uma especie de ponteiro para fazer o manipulamento dos dados
+        self.cur = con.cursor()
+        
+    def criar_tabela(self):
+        try:
+            self.cur.execute('''
+                CREATE TABLE IF NOT EXISTS Perguntas (
+                    Id INTEGER PRYMARY KEY AUTOINCREMENT,
+                    Enunciado TEXT,
+                )
+                CREATE TABLE IF NOT EXISTS Respostas (
+                    id INTEGER PRYMARY KEY AUTOINCREMENT, DATA
+                    Alternativa TEXT,
+                    Descrição TEXT,
+                    RespostaCerta INTEGER
+                )
+            ''')
+        except Exception as e:
+            print(f'[x] Falha ao criar a tabela [x]: {e}')
+        else:
+            print(f'[!] Tabela criada com sucesso [!]: {e}')
+    
+    def inserir_pergunta(self, pergunta):
+        try:
+            self.cur.execute('''
+                INSERT INTO Perguntas VALUES (?, ?)
+            ''', pergunta)
+        except Exception as e:
+            print('\n[x] Falha ao inserir registro [x]\n')
+            print(f'[x] Revertendo operação (rollback) [x]: {e}\n')
+            self.con.rollback()
+        else:
+            self.con.commit()
+            print('\n[!] Registro inserido com sucesso [!]\n')
 
-# C - Criação do dado
-def salvar(perguntasEResposta):
-    cur.executemany('''
-        INSERT INTO questoes VALUES(?, ?)
-    ''', perguntasEResposta)
-    con.commit()
+    def inserir_resposta(self, resposta):
+        try:
+            self.cur.execute('''
+                INSERT INTO Respostas VALUES (?, ?, ?, ?)
+            ''', resposta)
+        except Exception as e:
+            print('\n[x] Falha ao inserir registro [x]\n')
+            print(f'[x] Revertendo operação (rollback) [x]: {e}\n')
+            self.con.rollback()
+        else:
+            self.con.commit()
+            print('\n[!] Registro inserido com sucesso [!]\n')
 
-# R - Consulta dos dados
-def listarBanco():
-    for row in cur.execute('SELECT * FROM questoes'):
-        print(row)
+    def consultar_registro_pelo_id(self, rowid, pergunta):
+        return self.cur.executemany('''
+            SELECT * FROM Perguntas WHERE rowid=?
+        ''', (rowid, ).fetchone())
 
-# U - Atualização dos dados
-# def atualizar(perguntaEResposta):
-#     cur.execute('''
-#         UPDATE questoes
-#         SET pergunta = ?
-#         WHERE 
-#     ''')
-
-# D - Apagar os dados
-def apagar(perguntaEResposta):
-    pass
-
-
-listarBanco()
+    def alterar_registro(self, rowid, pergunta, resposta):
+        pass
