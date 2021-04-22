@@ -2,12 +2,13 @@ import random
 
 score = 0
 tentativas = 0
-secretNumber = random.randrange(1, 1000)
+secretNumber = 0
 playerNumber = 0
 rangeMax = 1000
 dificuldade = 0
 
 
+#Determina a dificuldade do jogo.
 def escolherDificuldade():
     global dificuldade
     global rangeMax
@@ -33,7 +34,7 @@ def escolherDificuldade():
         return rangeMax
 
 
-#Conta a quantidade de tentativas do usuario para acertar o número
+#Conta a quantidade de tentativas do usuario para acertar o número.
 def contarTentativas():
     global tentativas
     tentativas = tentativas + 1
@@ -41,6 +42,7 @@ def contarTentativas():
     return tentativas
 
 
+#Conta a pontuação do jogador.
 def contarScore():
     global score
     global tentativas
@@ -69,10 +71,16 @@ def contarScore():
     return score
 
 
+#Função do jogo propriamente dita
 def jogo():
     global playerNumber
     global secretNumber
     global rangeMax
+    global score
+    global tentativas
+
+    playerNumber = 0
+    tentativas = 0
 
     secretNumber = random.randrange(1, rangeMax)
 
@@ -87,8 +95,24 @@ def jogo():
         elif playerNumber < secretNumber:
             print(f'O número {playerNumber} é menor que o número secreto.')
             contarTentativas()
+    
+    print('Você acertou o número secreto! Parabéns.')
+    playerNumber = int(input("""
+Deseja jogar novamente?
+1-Sim  |  2-Não
+    """))
+
+    if playerNumber == 1:
+        playerNumber = 0
+        return playerNumber
+    else:
+        contarTentativas()
+        contarScore()
+        playerNumber = secretNumber
+        return playerNumber
 
 
+#Função principal que chama todas as outras.
 def main():
 
     print("""
@@ -99,21 +123,9 @@ def main():
     escolherDificuldade()
 
     jogo()
-    
-    print('Você acertou o número secreto! Parabéns.')
-    print("""
-    Deseja jogar novamente?
-    1-Sim  |  2-Não
-    """)
 
-    playerNumber = int(input())
-
-    if playerNumber == 1:
-        playerNumber = 0
-        jogo()
-    
-    print(contarTentativas())
-    print("Seu score: ", contarScore())
+    print(f'Esta foi a sua quantidade de tentativas: {tentativas}')
+    print(f'Seu score: {score}\n')
 
     return print('Fim do jogo.')
 
